@@ -42,7 +42,6 @@ export default {
 </script>
 
 <style>
-/* Переопределение стилей для Time Picker */
 .ant-picker {
 	background-color: #f4f3ef !important; /* Черный фон */
 	border-color: #173f35 !important; /* Основной цвет границы */
