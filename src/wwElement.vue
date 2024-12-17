@@ -74,6 +74,7 @@ export default {
 :where(.css-1p3hq3p).ant-btn-primary {
 	background-color: #173f35 !important;
 	box-shadow: none !important;
+	color: #f4f3ef !important;
 }
 
 :where(.css-1p3hq3p) a {
