@@ -51,6 +51,7 @@ export default {
 
 .ant-picker-input input {
 	color: #173f35 !important; /* Цвет текста внутри инпута */
+	font-weight: 500 !important;
 }
 
 .ant-picker-panel-container {
@@ -68,5 +69,26 @@ export default {
 
 :where(.css-1p3hq3p).ant-picker .ant-picker-suffix {
 	color: #173f35 !important; /* Цвет текста иконки часов */
+}
+
+:where(.css-1p3hq3p).ant-btn-primary {
+	background-color: #173f35 !important;
+	box-shadow: none !important;
+}
+
+:where(.css-1p3hq3p) a {
+	color: #173f35 !important;
+}
+
+:where(.css-1p3hq3p).ant-picker-dropdown
+	.ant-picker-time-panel-column
+	> li.ant-picker-time-panel-cell-selected
+	.ant-picker-time-panel-cell-inner {
+	background: #173f35 !important;
+	color: #f4f3ef !important;
+}
+
+:where(.css-1p3hq3p).ant-picker .ant-picker-clear {
+	color: #173f35 !important;
 }
 </style>
