@@ -3,7 +3,7 @@
 		<a-config-provider
 			:theme="{
 				token: {
-					colorPrimary: 'red',
+					colorPrimary: '#00b96b',
 				},
 			}"
 		>
@@ -15,7 +15,6 @@
 				format="HH:mm"
 			/>
 		</a-config-provider>
-		<p>Выбранное время: {{ timeValue }}</p>
 	</div>
 </template>
 
@@ -41,3 +40,33 @@ export default {
 	},
 };
 </script>
+
+<style>
+/* Переопределение стилей для Time Picker */
+.ant-picker {
+	background-color: #f4f3ef !important; /* Черный фон */
+	border-color: #173f35 !important; /* Основной цвет границы */
+	color: #173f35 !important; /* Белый текст */
+}
+
+.ant-picker-input input {
+	color: #173f35 !important; /* Цвет текста внутри инпута */
+}
+
+.ant-picker-panel-container {
+	background-color: #f4f3ef !important; /* Фон панели */
+}
+
+.ant-picker-time-panel-cell-inner {
+	color: #173f35 !important; /* Цвет цифр времени */
+}
+
+.ant-picker-time-panel-cell-inner:hover {
+	background-color: #f4f3ef !important; /* Цвет фона при наведении */
+	color: #173f35 !important; /* Цвет текста при наведении */
+}
+
+:where(.css-1p3hq3p).ant-picker .ant-picker-suffix {
+	color: #173f35 !important; /* Цвет текста иконки часов */
+}
+</style>
