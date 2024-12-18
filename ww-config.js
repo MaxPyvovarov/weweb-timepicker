@@ -9,7 +9,7 @@ export default {
 			label: {
 				en: 'Time',
 			},
-			type: 'text',
+			type: 'Text',
 			defaultValue: '05:00',
 			bindable: true,
 		},

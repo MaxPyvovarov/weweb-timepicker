@@ -41,11 +41,17 @@ export default {
 		uid: {type: String, required: true},
 		wwEditorState: {type: Object, required: true},
 	},
-	setup(props) {
-		// Устанавливаем дефолтное значение для timeValue
-		const timeValue = ref(props.content.time || dayjs('00:00', 'HH:mm')); // Если time не задан, используется 00:00
+	// setup(props) {
+	// 	// Устанавливаем дефолтное значение для timeValue
+	// 	const timeValue = ref(props.content.time || dayjs('00:00', 'HH:mm')); // Если time не задан, используется 00:00
 
-		return timeValue;
+	// 	return timeValue;
+	// },
+
+	computed: {
+		timeValue() {
+			return this.content.time;
+		},
 	},
 };
 </script>
