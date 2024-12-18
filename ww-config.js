@@ -7,10 +7,15 @@ export default {
 	properties: {
 		time: {
 			label: {
-				en: 'TIme',
+				en: 'Time',
 			},
 			type: 'text',
-			defaultValue: '06:00',
+			defaultValue: '05:00',
+			bindable: true,
 		},
+	},
+	externals: {
+		'ant-design-vue': 'AntDesignVue',
+		dayjs: 'dayjs',
 	},
 };

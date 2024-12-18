@@ -1,12 +1,6 @@
 <template>
 	<div class="time-picker">
-		<a-config-provider
-			:theme="{
-				token: {
-					colorPrimary: '#00b96b',
-				},
-			}"
-		>
+		<a-config-provider :locale="locale">
 			<a-time-picker
 				v-model:value="timeValue"
 				:minute-step="30"
@@ -19,14 +13,28 @@
 </template>
 
 <script>
-import {ref, computed} from 'vue';
-import {TimePicker} from 'ant-design-vue';
+import {ref} from 'vue';
+import {TimePicker, ConfigProvider} from 'ant-design-vue';
+import locale from 'ant-design-vue/es/locale/en_US'; // Замените на ваш язык
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
 
-const timeValue = ref(); // Хранит выбранное время
+// Подключаем плагин форматирования
+dayjs.extend(localizedFormat);
+dayjs.extend(customParseFormat);
+dayjs.locale('en');
+
+ConfigProvider.config({
+	locale,
+});
+
+// const timeValue = ref(dayjs('00:00', 'HH:mm')); // Начальное время
 
 export default {
 	components: {
 		ATimePicker: TimePicker,
+		AConfigProvider: ConfigProvider,
 	},
 	props: {
 		content: {type: Object, required: true},
@@ -35,15 +43,9 @@ export default {
 	},
 	setup(props) {
 		// Устанавливаем дефолтное значение для timeValue
-		const timeValue = ref(props.content.time || '00:00'); // Если time не задан, используется 00:00
+		const timeValue = ref(props.content.time || dayjs('00:00', 'HH:mm')); // Если time не задан, используется 00:00
 
-		// Опционально следим за изменением props.content.time
-		const computedTime = computed(() => props.content.time);
-
-		return {
-			timeValue,
-			computedTime,
-		};
+		return timeValue;
 	},
 	// computed: {
 	// 	textStyle() {
