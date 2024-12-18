@@ -47,13 +47,6 @@ export default {
 
 		return timeValue;
 	},
-	// computed: {
-	// 	textStyle() {
-	// 		return {
-	// 			color: this.content.textColor,
-	// 		};
-	// 	},
-	// },
 };
 </script>
 
