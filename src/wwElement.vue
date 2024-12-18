@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import {ref} from 'vue';
+import {ref, computed} from 'vue';
 import {TimePicker} from 'ant-design-vue';
 
 const timeValue = ref(); // Хранит выбранное время
@@ -30,14 +30,28 @@ export default {
 	},
 	props: {
 		content: {type: Object, required: true},
+		uid: {type: String, required: true},
+		wwEditorState: {type: Object, required: true},
 	},
-	computed: {
-		textStyle() {
-			return {
-				color: this.content.textColor,
-			};
-		},
+	setup(props) {
+		// Устанавливаем дефолтное значение для timeValue
+		const timeValue = ref(props.content.time || '00:00'); // Если time не задан, используется 00:00
+
+		// Опционально следим за изменением props.content.time
+		const computedTime = computed(() => props.content.time);
+
+		return {
+			timeValue,
+			computedTime,
+		};
 	},
+	// computed: {
+	// 	textStyle() {
+	// 		return {
+	// 			color: this.content.textColor,
+	// 		};
+	// 	},
+	// },
 };
 </script>
 

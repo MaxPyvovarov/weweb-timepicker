@@ -5,12 +5,12 @@ export default {
 		},
 	},
 	properties: {
-		textColor: {
+		time: {
 			label: {
-				en: 'Text color',
+				en: 'TIme',
 			},
-			type: 'Color',
-			defaultValue: '#F23636',
+			type: 'text',
+			defaultValue: '06:00',
 		},
 	},
 };
