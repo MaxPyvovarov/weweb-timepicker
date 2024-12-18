@@ -10,7 +10,7 @@ export default {
 				en: 'Time',
 			},
 			type: 'Text',
-			defaultValue: '05:00',
+			defaultValue: '',
 			bindable: true,
 		},
 	},

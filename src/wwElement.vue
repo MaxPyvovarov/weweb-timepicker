@@ -9,13 +9,13 @@
 				format="HH:mm"
 			/>
 		</a-config-provider>
+		<p>TEST: {{ formattedTime }}</p>
 	</div>
 </template>
 
 <script>
-import {ref} from 'vue';
 import {TimePicker, ConfigProvider} from 'ant-design-vue';
-import locale from 'ant-design-vue/es/locale/en_US'; // Замените на ваш язык
+import locale from 'ant-design-vue/es/locale/en_US';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
@@ -29,8 +29,6 @@ ConfigProvider.config({
 	locale,
 });
 
-// const timeValue = ref(dayjs('00:00', 'HH:mm')); // Начальное время
-
 export default {
 	components: {
 		ATimePicker: TimePicker,
@@ -41,14 +39,23 @@ export default {
 		uid: {type: String, required: true},
 		wwEditorState: {type: Object, required: true},
 	},
-	// setup(props) {
-	// 	// Устанавливаем дефолтное значение для timeValue
-	// 	const timeValue = ref(props.content.time || dayjs('00:00', 'HH:mm')); // Если time не задан, используется 00:00
-
-	// 	return timeValue;
-	// },
+	methods: {
+		formatTime(value) {
+			return dayjs(value, 'HH:mm').format('HH:mm'); // Пример форматирования
+		},
+	},
 
 	computed: {
+		formattedTime: {
+			get() {
+				// Преобразуем внутреннее значение в нужный формат
+				return this.timeValue ? dayjs(this.timeValue).format('HH:mm') : null;
+			},
+			set(value) {
+				// Сохраняем значение в оригинальном формате
+				this.timeValue = value ? dayjs(value, 'HH:mm').toDate() : null;
+			},
+		},
 		timeValue() {
 			return this.content.time;
 		},
