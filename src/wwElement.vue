@@ -39,7 +39,9 @@ export default {
 
 	setup(props) {
 		// Инициализируем реактивную переменную timeValue
-		const timeValue = ref(dayjs(props.content.time, 'HH:mm') || null);
+		const timeValue = ref(
+			props.content?.time ? dayjs(props.content.time, 'HH:mm') : null
+		);
 
 		return {
 			timeValue,
