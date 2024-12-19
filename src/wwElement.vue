@@ -1,64 +1,43 @@
 <template>
 	<div class="time-picker">
-		<a-config-provider :locale="locale">
-			<a-time-picker
-				v-model:value="timeValue"
-				:minute-step="30"
-				:second-step="10"
-				placeholder="Select time"
-				format="HH:mm"
-			/>
-		</a-config-provider>
-		<p>TEST: {{ formattedTime }}</p>
+		<a-time-picker
+			v-model:value="timeValue"
+			:minute-step="30"
+			placeholder="Select time"
+			value-format="HH:mm"
+			:show-second="false"
+			format="HH:mm"
+		/>
+		<p>TEST: {{ timeValue }}</p>
 	</div>
 </template>
 
 <script>
-import {TimePicker, ConfigProvider} from 'ant-design-vue';
-import locale from 'ant-design-vue/es/locale/en_US';
+import {TimePicker} from 'ant-design-vue';
 import dayjs from 'dayjs';
-import customParseFormat from 'dayjs/plugin/customParseFormat';
-import localizedFormat from 'dayjs/plugin/localizedFormat';
-
-// Подключаем плагин форматирования
-dayjs.extend(localizedFormat);
-dayjs.extend(customParseFormat);
-dayjs.locale('en');
-
-ConfigProvider.config({
-	locale,
-});
+import {ref} from 'vue';
 
 export default {
 	components: {
 		ATimePicker: TimePicker,
-		AConfigProvider: ConfigProvider,
 	},
 	props: {
 		content: {type: Object, required: true},
 		uid: {type: String, required: true},
 		wwEditorState: {type: Object, required: true},
 	},
-	methods: {
-		formatTime(value) {
-			return dayjs(value, 'HH:mm').format('HH:mm'); // Пример форматирования
-		},
-	},
 
-	computed: {
-		formattedTime: {
-			get() {
-				// Преобразуем внутреннее значение в нужный формат
-				return this.timeValue ? dayjs(this.timeValue).format('HH:mm') : null;
-			},
-			set(value) {
-				// Сохраняем значение в оригинальном формате
-				this.timeValue = value ? dayjs(value, 'HH:mm').toDate() : null;
-			},
-		},
-		timeValue() {
-			return this.content.time;
-		},
+	setup(props) {
+		console.log(props);
+		// Инициализируем реактивную переменную timeValue
+		const timeValue = ref(
+			dayjs(props.content.time.value, 'HH:mm') ||
+				dayjs('08:00', 'HH:mm').format('HH:mm')
+		);
+
+		return {
+			timeValue,
+		};
 	},
 };
 </script>
