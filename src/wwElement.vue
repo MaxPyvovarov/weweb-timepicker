@@ -4,7 +4,7 @@
 			v-model:value="timeValue"
 			:minute-step="30"
 			placeholder="Select time"
-			value-format="HH:mm"
+			value-format="HH:mm:ss"
 			:show-second="false"
 			format="HH:mm"
 			@change="handleTimeChange"
