@@ -9,7 +9,6 @@
 			format="HH:mm"
 			@change="handleTimeChange"
 		/>
-		<p>TEST: {{ timeValue }}</p>
 	</div>
 </template>
 
