@@ -8,6 +8,7 @@
 			:show-second="false"
 			format="HH:mm"
 			@change="handleTimeChange"
+			allowClear="false"
 		/>
 	</div>
 </template>
