@@ -23,7 +23,7 @@ export default {
 			name: 'onTimeChange',
 			label: {en: 'On time change'},
 			event: {
-				time,
+				time: '',
 			},
 		},
 	],

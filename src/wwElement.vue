@@ -32,7 +32,7 @@ export default {
 		handleTimeChange(time) {
 			this.$emit('trigger-event', {
 				name: 'onTimeChange',
-				event: {time},
+				event: {time: 'test'},
 			});
 		},
 	},
