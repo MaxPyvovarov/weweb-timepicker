@@ -18,4 +18,13 @@ export default {
 		'ant-design-vue': 'AntDesignVue',
 		dayjs: 'dayjs',
 	},
+	triggerEvents: [
+		{
+			name: 'onTimeChange',
+			label: {en: 'On time change'},
+			event: {
+				time,
+			},
+		},
+	],
 };

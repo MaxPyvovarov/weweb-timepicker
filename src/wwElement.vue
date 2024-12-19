@@ -7,6 +7,7 @@
 			value-format="HH:mm"
 			:show-second="false"
 			format="HH:mm"
+			@change="handleTimeChange"
 		/>
 		<p>TEST: {{ timeValue }}</p>
 	</div>
@@ -26,14 +27,19 @@ export default {
 		uid: {type: String, required: true},
 		wwEditorState: {type: Object, required: true},
 	},
+	emits: ['trigger-event'],
+	methods: {
+		handleTimeChange(time) {
+			this.$emit('trigger-event', {
+				name: 'onTimeChange',
+				event: {time},
+			});
+		},
+	},
 
 	setup(props) {
-		console.log(props);
 		// Инициализируем реактивную переменную timeValue
-		const timeValue = ref(
-			dayjs(props.content.time, 'HH:mm') ||
-				dayjs('08:00', 'HH:mm').format('HH:mm')
-		);
+		const timeValue = ref(dayjs(props.content.time, 'HH:mm') || null);
 
 		return {
 			timeValue,
