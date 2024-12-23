@@ -16,7 +16,7 @@
 <script>
 import {TimePicker} from 'ant-design-vue';
 import dayjs from 'dayjs';
-import {ref} from 'vue';
+import {ref, watch} from 'vue';
 
 export default {
 	components: {
@@ -41,6 +41,13 @@ export default {
 		// Инициализируем реактивную переменную timeValue
 		const timeValue = ref(
 			props.content?.time ? dayjs(props.content.time, 'HH:mm') : null
+		);
+
+		watch(
+			() => props.content.time,
+			newTime => {
+				timeValue.value = newTime ? dayjs(newTime, 'HH:mm') : null;
+			}
 		);
 
 		return {
