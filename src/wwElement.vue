@@ -82,39 +82,37 @@ export default {
 }
 
 .ant-picker-time-panel-cell-inner {
-	color: var(--picker-text-color) !important; /* Цвет цифр времени */
+	color: '#173f35' !important; /* Цвет цифр времени */
 }
 
 .ant-picker-time-panel-cell-inner:hover {
-	background-color: var(
-		--picker-bg-color
-	) !important; /* Цвет фона при наведении */
-	color: var(--picker-text-color) !important; /* Цвет текста при наведении */
+	background-color: #f4f3ef !important; /* Цвет фона при наведении */
+	color: '#173f35' !important; /* Цвет текста при наведении */
 }
 
 :where(.css-1p3hq3p).ant-picker .ant-picker-suffix {
-	color: var(--picker-text-color) !important; /* Цвет текста иконки часов */
+	color: '#173f35' !important; /* Цвет текста иконки часов */
 }
 
 :where(.css-1p3hq3p).ant-btn-primary {
-	background-color: var(--picker-text-color) !important;
+	background-color: '#173f35' !important;
 	box-shadow: none !important;
-	color: var(--picker-bg-color) !important;
+	color: #f4f3ef !important;
 }
 
 :where(.css-1p3hq3p) a {
-	color: var(--picker-text-color) !important;
+	color: '#173f35' !important;
 }
 
 :where(.css-1p3hq3p).ant-picker-dropdown
 	.ant-picker-time-panel-column
 	> li.ant-picker-time-panel-cell-selected
 	.ant-picker-time-panel-cell-inner {
-	background: var(--picker-text-color) !important;
-	color: var(--picker-bg-color) !important;
+	background: '#173f35' !important;
+	color: #f4f3ef !important;
 }
 
 :where(.css-1p3hq3p).ant-picker .ant-picker-clear {
-	color: var(--picker-text-color) !important;
+	color: '#173f35' !important;
 }
 </style>
