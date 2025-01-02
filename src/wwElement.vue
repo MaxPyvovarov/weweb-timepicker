@@ -45,7 +45,6 @@ export default {
 
 		const dynamicStyles = computed(() => {
 			return {
-				'--picker-bg-color': props.content?.bgColor || '#f4f3ef',
 				'--picker-text-color': props.content?.textColor || '#173f35',
 			};
 		});
@@ -67,7 +66,7 @@ export default {
 
 <style>
 .ant-picker {
-	background-color: var(--picker-bg-color) !important;
+	background-color: #f4f3ef !important;
 	border-color: var(--picker-text-color) !important;
 	color: var(--picker-text-color) !important;
 }
@@ -78,7 +77,7 @@ export default {
 }
 
 .ant-picker-panel-container {
-	background-color: var(--picker-bg-color) !important; /* Фон панели */
+	background-color: #f4f3ef !important; /* Фон панели */
 }
 
 .ant-picker-time-panel-cell-inner {
@@ -86,9 +85,7 @@ export default {
 }
 
 .ant-picker-time-panel-cell-inner:hover {
-	background-color: var(
-		--picker-bg-color
-	) !important; /* Цвет фона при наведении */
+	background-color: #f4f3ef !important; /* Цвет фона при наведении */
 	color: var(--picker-text-color) !important; /* Цвет текста при наведении */
 }
 
@@ -97,9 +94,9 @@ export default {
 }
 
 :where(.css-1p3hq3p).ant-btn-primary {
-	background-color: var(--picker-text-color) !important;
+	background-color: #f4f3ef !important;
 	box-shadow: none !important;
-	color: var(--picker-bg-color) !important;
+	color: #f4f3ef !important;
 }
 
 :where(.css-1p3hq3p) a {
@@ -110,8 +107,8 @@ export default {
 	.ant-picker-time-panel-column
 	> li.ant-picker-time-panel-cell-selected
 	.ant-picker-time-panel-cell-inner {
-	background: var(--picker-text-color) !important;
-	color: var(--picker-bg-color) !important;
+	background-color: #f4f3ef !important;
+	color: #f4f3ef !important;
 }
 
 :where(.css-1p3hq3p).ant-picker .ant-picker-clear {
