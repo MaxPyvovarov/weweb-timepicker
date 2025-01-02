@@ -82,37 +82,37 @@ export default {
 }
 
 .ant-picker-time-panel-cell-inner {
-	color: '#173f35' !important; /* Цвет цифр времени */
+	color: #173f35 !important; /* Цвет цифр времени */
 }
 
 .ant-picker-time-panel-cell-inner:hover {
 	background-color: #f4f3ef !important; /* Цвет фона при наведении */
-	color: '#173f35' !important; /* Цвет текста при наведении */
+	color: #173f35 !important; /* Цвет текста при наведении */
 }
 
 :where(.css-1p3hq3p).ant-picker .ant-picker-suffix {
-	color: '#173f35' !important; /* Цвет текста иконки часов */
+	color: #173f35 !important; /* Цвет текста иконки часов */
 }
 
 :where(.css-1p3hq3p).ant-btn-primary {
-	background-color: '#173f35' !important;
+	background-color: #173f35 !important;
 	box-shadow: none !important;
 	color: #f4f3ef !important;
 }
 
 :where(.css-1p3hq3p) a {
-	color: '#173f35' !important;
+	color: #173f35 !important;
 }
 
 :where(.css-1p3hq3p).ant-picker-dropdown
 	.ant-picker-time-panel-column
 	> li.ant-picker-time-panel-cell-selected
 	.ant-picker-time-panel-cell-inner {
-	background: '#173f35' !important;
+	background: #173f35 !important;
 	color: #f4f3ef !important;
 }
 
 :where(.css-1p3hq3p).ant-picker .ant-picker-clear {
-	color: '#173f35' !important;
+	color: #173f35 !important;
 }
 </style>
