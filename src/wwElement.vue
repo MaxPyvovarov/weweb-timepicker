@@ -1,5 +1,5 @@
 <template>
-	<div class="time-picker">
+	<div class="time-picker" :style="dynamicStyles">
 		<a-time-picker
 			v-model:value="timeValue"
 			:minute-step="30"
@@ -16,7 +16,7 @@
 <script>
 import {TimePicker} from 'ant-design-vue';
 import dayjs from 'dayjs';
-import {ref, watch} from 'vue';
+import {ref, watch, computed} from 'vue';
 
 export default {
 	components: {
@@ -43,6 +43,13 @@ export default {
 			props.content?.time ? dayjs(props.content.time, 'HH:mm') : null
 		);
 
+		const dynamicStyles = computed(() => {
+			return {
+				'--picker-bg-color': props.content?.bgColor || '#f4f3ef',
+				'--picker-text-color': props.content?.textColor || '#173f35',
+			};
+		});
+
 		watch(
 			() => props.content.time,
 			newTime => {
@@ -52,6 +59,7 @@ export default {
 
 		return {
 			timeValue,
+			dynamicStyles,
 		};
 	},
 };
@@ -59,52 +67,54 @@ export default {
 
 <style>
 .ant-picker {
-	background-color: #f4f3ef !important; /* Черный фон */
-	border-color: #173f35 !important; /* Основной цвет границы */
-	color: #173f35 !important; /* Белый текст */
+	background-color: var(--picker-bg-color) !important;
+	border-color: var(--picker-text-color) !important;
+	color: var(--picker-text-color) !important;
 }
 
 .ant-picker-input input {
-	color: #173f35 !important; /* Цвет текста внутри инпута */
+	color: var(--picker-text-color) !important; /* Цвет текста внутри инпута */
 	font-weight: 500 !important;
 }
 
 .ant-picker-panel-container {
-	background-color: #f4f3ef !important; /* Фон панели */
+	background-color: var(--picker-bg-color) !important; /* Фон панели */
 }
 
 .ant-picker-time-panel-cell-inner {
-	color: #173f35 !important; /* Цвет цифр времени */
+	color: var(--picker-text-color) !important; /* Цвет цифр времени */
 }
 
 .ant-picker-time-panel-cell-inner:hover {
-	background-color: #f4f3ef !important; /* Цвет фона при наведении */
-	color: #173f35 !important; /* Цвет текста при наведении */
+	background-color: var(
+		--picker-bg-color
+	) !important; /* Цвет фона при наведении */
+	color: var(--picker-text-color) !important; /* Цвет текста при наведении */
 }
 
 :where(.css-1p3hq3p).ant-picker .ant-picker-suffix {
-	color: #173f35 !important; /* Цвет текста иконки часов */
+	color: var(--picker-text-color) !important; /* Цвет текста иконки часов */
 }
 
 :where(.css-1p3hq3p).ant-btn-primary {
-	background-color: #173f35 !important;
+	background-color: var(--picker-text-color) !important;
 	box-shadow: none !important;
-	color: #f4f3ef !important;
+	color: var(--picker-bg-color) !important;
 }
 
 :where(.css-1p3hq3p) a {
-	color: #173f35 !important;
+	color: var(--picker-text-color) !important;
 }
 
 :where(.css-1p3hq3p).ant-picker-dropdown
 	.ant-picker-time-panel-column
 	> li.ant-picker-time-panel-cell-selected
 	.ant-picker-time-panel-cell-inner {
-	background: #173f35 !important;
-	color: #f4f3ef !important;
+	background: var(--picker-text-color) !important;
+	color: var(--picker-bg-color) !important;
 }
 
 :where(.css-1p3hq3p).ant-picker .ant-picker-clear {
-	color: #173f35 !important;
+	color: var(--picker-text-color) !important;
 }
 </style>

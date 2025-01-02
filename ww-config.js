@@ -13,6 +13,22 @@ export default {
 			defaultValue: '',
 			bindable: true,
 		},
+		textColor: {
+			label: {
+				en: 'Text color',
+			},
+			type: 'Color',
+			defaultValue: '#173f35',
+			bindable: true,
+		},
+		bgColor: {
+			label: {
+				en: 'Background color',
+			},
+			type: 'Color',
+			defaultValue: '#f4f3ef',
+			bindable: true,
+		},
 	},
 	externals: {
 		'ant-design-vue': 'AntDesignVue',
