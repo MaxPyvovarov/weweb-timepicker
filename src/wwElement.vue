@@ -91,7 +91,7 @@ export default {
 }
 
 :where(.css-1p3hq3p).ant-picker .ant-picker-suffix {
-	color: #173f35 !important; /* Цвет текста иконки часов */
+	color: var(--picker-text-color) !important; /* Цвет текста иконки часов */
 }
 
 :where(.css-1p3hq3p).ant-btn-primary {
